@@ -1,0 +1,35 @@
+// server.js
+import Fastify from 'fastify'
+import cors from '@fastify/cors'
+import axios from 'axios'
+import dotenv from 'dotenv'
+dotenv.config()
+
+const fastify = Fastify({ logger: true })
+const FRED_API_KEY = process.env.FRED_API_KEY
+
+await fastify.register(cors, {
+    origin: true
+})
+
+fastify.get('/api/wealth-data', async (request, reply) => {
+    try {
+        const response = await axios.get(`https://api.stlouisfed.org/fred/series/observations`, {
+            params: {
+                series_id: 'WFRBST01134',
+                api_key: FRED_API_KEY,
+                file_type: 'json'
+            }
+        })
+        return response.data
+    } catch (err) {
+        reply.code(500).send(err)
+    }
+})
+
+try {
+    await fastify.listen({ port: 3000 })
+} catch (err) {
+    fastify.log.error(err)
+    process.exit(1)
+}
