@@ -20,7 +20,25 @@ A real-time visualization dashboard tracking wealth inequality metrics using FRE
 - Docker Desktop
 - AWS SAM CLI
 
-## Development Tools
+## Project Setup
+
+### Clone the Repository
+You can clone this repository in two ways:
+
+1. Clone with submodules (recommended):
+```bash
+git clone --recurse-submodules git@github.com:jnroder/wealth-inequality.git
+```
+
+2. Or if you've already cloned the repository:
+```bash
+git clone git@github.com:jnroder/wealth-inequality.git
+cd wealth-inequality
+git submodule init
+git submodule update
+```
+
+## Development
 
 ### Frontend Development
 ```bash
@@ -69,6 +87,26 @@ FRED_API_KEY=your_key_here
 - API Gateway triggers Lambda function
 - Lambda fetches and processes FRED data
 - Environment-specific configurations for local and production
+
+## Infrastructure Updates
+The infrastructure code is maintained in a separate repository and included as a git submodule. To update the infrastructure:
+
+1. Navigate to the infrastructure directory:
+```bash
+cd infrastructure
+```
+
+2. Pull latest changes:
+```bash
+git pull origin main
+```
+
+3. Return to root and commit the submodule update:
+```bash
+cd ..
+git add infrastructure
+git commit -m "Update infrastructure submodule"
+```
 
 ## Contributing
 1. Fork the repository
