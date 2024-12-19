@@ -1,4 +1,3 @@
-// server/lambda.ts
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda'
 import axios from 'axios'
 
