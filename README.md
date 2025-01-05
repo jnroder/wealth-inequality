@@ -1,6 +1,8 @@
 # Wealth Inequality Dashboard
 
-A real-time visualization dashboard tracking wealth inequality metrics using FRED (Federal Reserve Economic Data) API.
+A real-time visualization dashboard tracking wealth inequality metrics using various data sources, including:
+- FRED (Federal Reserve Economic Data) API
+- United States Census Bureau Data APIs
 
 ## Features
 - Real-time data fetching from FRED API
@@ -10,6 +12,7 @@ A real-time visualization dashboard tracking wealth inequality metrics using FRE
 
 ## Tech Stack
 - Frontend: React + Vite
+- Design: TailwindCSS
 - Backend: AWS Lambda
 - Infrastructure: AWS CDK
 - Data Source: FRED API
@@ -46,11 +49,19 @@ npm run dev  # Start Vite dev server
 ```
 Runs on http://localhost:5173
 
-### Local Lambda Testing
+```bash
+npx tailwindcss -i ./src/input.css -o ./src/output.css --watch # Compile CSS usin g Tailwind build process
+```
+
+### Local Lambda Testing - This serves *our* API endpoints
 ```bash
 cd infrastructure
+
+# Windows
 cdk synth --no-staging | Out-File -Encoding UTF8 template.yaml  # Generate CloudFormation template
-# cdk synth --no-staging | cat > template.yaml # bash
+# Mac / Linux
+cdk synth --no-staging | cat > template.yaml # Generate CloudFormation template
+
 npm run lambda # Start local API. Docker must be running for this to work.
 ```
 Runs on http://localhost:3000

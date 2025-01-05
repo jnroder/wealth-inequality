@@ -29,3 +29,6 @@ build
 .aws-sam
 cdk.out
 *.js.map
+
+# Compiled files
+src/output.css

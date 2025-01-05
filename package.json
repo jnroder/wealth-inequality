@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@fastify/cors": "^10.0.1",
+    "@headlessui/react": "^2.2.0",
+    "@heroicons/react": "^2.2.0",
     "@radix-ui/react-slot": "^1.1.0",
     "@types/aws-lambda": "^8.10.146",
     "axios": "^1.7.9",
