@@ -1,0 +1,10 @@
+{
+  "// This file lists all environment variables used by the application": "",
+  "lambda": {
+    "FRED_API_KEY": "stored in Lambda environment, used for FRED API access. accessible via AWS Lambda console",
+    "CENSUS_API_KEY": "stored in Lambda environment, used for FRED API access. accessible via AWS Lambda console"
+  },
+  "frontend": {
+    "API_BASE_URL": "http://localhost:3000"    
+  }
+}

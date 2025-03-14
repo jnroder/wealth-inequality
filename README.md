@@ -49,10 +49,6 @@ npm run dev  # Start Vite dev server
 ```
 Runs on http://localhost:5173
 
-```bash
-npx tailwindcss -i ./src/input.css -o ./src/output.css --watch # Compile CSS usin g Tailwind build process
-```
-
 ### Local Lambda Testing - This serves *our* API endpoints
 ```bash
 cd infrastructure
